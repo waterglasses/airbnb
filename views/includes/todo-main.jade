@@ -10,10 +10,10 @@ form#form-task.form-inline(class='todos')
     .sub
       .form-group
         select.form-control(name='category')
-          option(value='개인', selected) 1인
-          option(value='가족') 2인
-          option(value='업무') 3인
-          option(value='기타') 4인 이상
+          option(value='1인', selected) 1인
+          option(value='2인') 2인
+          option(value='3인') 3인
+          option(value='4인이상') 4인 이상
       .form-group
         select.form-control(name='priority')
           option(value='3') 큼
@@ -38,7 +38,7 @@ script#task-template(type='text/template').
       </span>
     <% } %>
     <span class='priority p<%= priority %>'>
-      <%= (priority === 3) ? "중요" : ((priority === 1) ? "사소": "보통") %>
+      <%= (priority === 3) ? "큼" : ((priority === 1) ? "작음": "보통") %>
     </span>
     <a href='#' class='remove'><i class='fa fa-trash-o'></i></a>
   </li>
