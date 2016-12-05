@@ -1,15 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var Task = require('../models/Task');
+var User = require('../models/User');
+var Reserve = require('../models/Reserve');
+// var Task = require('../models/Task');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Task.find({}, function(err, hosts) {
+    Reserve.find({},function(err,resevelists){
         if(err){
             return next(err);
         }
-        res.render('host/list', {hosts : hosts})
-    })
+        res.render('reserve/list', {resevelists : resevelists});
+    });
 });
 
 function needAuth(req, res, next) {
