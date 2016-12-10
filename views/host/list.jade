@@ -3,20 +3,31 @@ extends ../layout
 block content
     table.table.table-striped
         tr
-            td 숙소 제목
+            td 호스트 이름
+            td 제목
             td 도시
             td 주소
+            td 간단한 설명
             td 요금
             td 규칙
             td 이용시설
         each host in hosts
             tr
+             td
+                | #{host.host_name}
              td= host.content
              td= host.city
              td= host.address
+             td= host.explain
              td= host.charge
              td= host.rule
              td= host.facilities
              td
-                a.btn.btn-info(href='/reserve/request') 예약
-                //- a.btn.btn-info(href='/reserve/request') 위시리스트
+                a.btn.btn-info(href='/request/request') 예약
+
+    form#form-task.form-inline.books(action='host/search', method= 'GET')
+        .form
+            .main
+            input(type='text', id='city', name='city', placeholder='여행하려는 도시명을 입력하세요')
+        .actions
+            button#post-task.btn.btn-primary 숙소 목록 검색

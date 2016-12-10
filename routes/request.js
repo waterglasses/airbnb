@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Reserve = require('../models/Reserve');
+var Request = require('../models/Request');
 
 function needAuth(req, res, next) {
   if (req.isAuthenticated()) {
@@ -11,20 +11,18 @@ function needAuth(req, res, next) {
   }
 }
 
-router.get('/request', function(req, res, next){
-  res.render('reserve/request');
+router.get('/request',needAuth, function(req, res, next){
+  res.render('request/request');
 });
 
 router.post('/request',function(req, res, next){
-  console.log(req);
-  console.log('----------------------');
   
-  var reserve = new Reserve({
+  var request = new Request({
     check_in :  req.body.check_in,
     check_out : req.body.check_out,
     number_op : req.body.number_op
   });
-  reserve.save(function(err, resultReserve){
+  request.save(function(err, resultRequest){
     if(err){
       return next(err);
     }

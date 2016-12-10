@@ -25,8 +25,10 @@ router.post('/', needAuth, function(req, res, next) {
     return res.status(400).json({message: 'need content'});
   }
   var task = new Task({
+    host_name: req.user.name,
     content: req.body.content,
     city: req.body.city,
+    explain: req.body.explain,
     address: req.body.address,
     charge: req.body.charge,
     facilities: req.body.facilities,
@@ -52,11 +54,17 @@ router.put('/:id', needAuth, function(req, res, next) {
     if (!task) {
       return res.status(404).json({message: 'task not found'});
     }
+    if (req.user.name){
+      task.host_name = req.user.name;
+    }
     if (req.body.content) {
       task.content = req.body.content;
     }
     if (req.body.city) {
       task.city = req.body.city;
+    }
+    if(req.body.explain) {
+      task.explain = req.body.explain;
     }
     if (req.body.address) {
       task.address = req.body.address;

@@ -3,6 +3,7 @@ form#form-task.form-inline(class='todos')
     .main
       input(type='text', id='content', name='content', placeholder='호스팅 제목')
       input(type='text', id='city', name='city', placeholder='도시')
+      input(type='text', id='explain', name='explain', placeholder='간단한 설명')
       input(type='text', id='address', name='address', placeholder='주소')
       input(type='text', id='charge', name='charge', placeholder='요금')
       input(type='text', id='facilities', name='facilities', placeholder='편의시설')
@@ -25,7 +26,7 @@ form#form-task.form-inline(class='todos')
 ul.tasks
 
 .no-task 
-  .alert.alert-info Task가 없습니다.
+  .alert.alert-info 등록한 숙소가 없습니다.
 script#task-template(type='text/template').
   <li class='task <%= doneStr %>' data-id='<%= id %>'>
     <span class='check'>

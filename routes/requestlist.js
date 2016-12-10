@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/User');
-var Reserve = require('../models/Reserve');
-// var Task = require('../models/Task');
+var Request = require('../models/Request');
+var Task = require('../models/Task');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    Reserve.find({},function(err,resevelists){
+router.get('/',needAuth, function(req, res, next) {
+    Request.find({},function(err,requestlists){
         if(err){
             return next(err);
         }
-        res.render('reserve/list', {resevelists : resevelists});
+        res.render('request/list', {requestlists : requestlists});
     });
 });
 

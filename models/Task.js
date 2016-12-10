@@ -4,6 +4,8 @@ var mongoose = require('mongoose'),
 
 var schema = new Schema({
   content: {type: String, required: true, trim: true},
+  host_name : {type : String},
+  explain: {type: String},
   category: {type: String, trim: true},
   city: {type: String, trim: true},
   address: {type: String, trim: true},

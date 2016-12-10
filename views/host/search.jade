@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    table.table.table-striped
+        tr
+            td 호스트 아이디
+            td 숙소 제목
+            td 도시
+            td 주소
+            td 간단한 설명
+            td 요금
+            td 규칙
+            td 이용시설
+        each search in searchs
+            tr
+             td
+                | #{search.host_name}
+             td= search.content
+             td= search.city
+             td= search.address
+             td= search.explain
+             td= search.charge
+             td= search.rule
+             td= search.facilities
+             td
+                a.btn.btn-info(href='/request/request') 예약
