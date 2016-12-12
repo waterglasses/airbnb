@@ -3,12 +3,14 @@ extends ../layout
 block content
     table.table.table-striped
         tr
-            th 체크인 날짜
-            th 체크아웃 날짜
-            th 숙박인원
-            th 예약요청 시간
+            td 예약 요청인
+            td 체크인 날짜
+            td 체크아웃 날짜
+            td 숙박인원
+            td 예약요청 시간
         each requestlist in requestlists
             tr
+             td= requestlist.user
              td= requestlist.check_in
              td= requestlist.check_out
              td= requestlist.number_op

@@ -5,7 +5,7 @@ var Request = require('../models/Request');
 var Task = require('../models/Task');
 
 /* GET home page. */
-router.get('/',needAuth, function(req, res, next) {
+router.get('/', needAuth, function(req, res, next) {
     Request.find({},function(err,requestlists){
         if(err){
             return next(err);

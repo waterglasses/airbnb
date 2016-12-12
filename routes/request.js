@@ -18,9 +18,13 @@ router.get('/request',needAuth, function(req, res, next){
 router.post('/request',function(req, res, next){
   
   var request = new Request({
+    // request_name : req.user.name,
     check_in :  req.body.check_in,
     check_out : req.body.check_out,
-    number_op : req.body.number_op
+    number_op : req.body.number_op,
+    requestAt : req.body.requestAt,
+    user : req.user.id,
+    task : req.task._id
   });
   request.save(function(err, resultRequest){
     if(err){
