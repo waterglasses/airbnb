@@ -23,7 +23,7 @@ block content
              td= host.rule
              td= host.facilities
              td
-                a.btn.btn-info(href='/request/request') 예약
+                a.btn.btn-info(href='/request/request/'+host.id) 예약
 
     form#form-task.form-inline.books(action='host/search', method= 'GET')
         .form

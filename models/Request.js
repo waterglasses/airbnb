@@ -8,9 +8,6 @@ var schema = new Schema({
     requestAt: {type: Date, default: Date.now},
     user: {type: Schema.Types.ObjectId, index: true, required: true},
     task: {type: Schema.Types.ObjectId, index: true, required: true},
-    // host_content: {type: String},
-    // request_name: {type: String},
-    // host_name: {type: String},
 }, {
     toJSON: { virtuals: true},
     toObject: {virtuals: true}

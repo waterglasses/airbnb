@@ -11,12 +11,11 @@ function needAuth(req, res, next) {
   }
 }
 
-router.get('/request',needAuth, function(req, res, next){
-  res.render('request/request');
+router.get('/request/:task_id',needAuth, function(req, res, next){
+  res.render('request/request', {task_id : req.params.task_id});
 });
 
 router.post('/request',function(req, res, next){
-  
   var request = new Request({
     // request_name : req.user.name,
     check_in :  req.body.check_in,
@@ -24,7 +23,7 @@ router.post('/request',function(req, res, next){
     number_op : req.body.number_op,
     requestAt : req.body.requestAt,
     user : req.user.id,
-    task : req.task._id
+    task : req.body.task_id
   });
   request.save(function(err, resultRequest){
     if(err){
