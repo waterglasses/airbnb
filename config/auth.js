@@ -45,7 +45,7 @@ module.exports = function(passport) {
     profileFields : ["emails", "displayName", "name", "photos"]
   }, function(token, refreshToken, profile, done) {
     // var email = profile.emails[0].value;
-    var email = 'tnryd_1004@hanmail.net'
+    var email = 'tnryd_1004@hanmail.net';
     process.nextTick(function () {
       User.findOne({'facebook.id': profile.id}, function(err, user) {
         if (err) {
@@ -62,7 +62,6 @@ module.exports = function(passport) {
               user = new User({
                 name: profile.displayName,
                 email: email
-                // email: profile.emails[0].value
               });
             }
             user.facebook.id = profile.id;

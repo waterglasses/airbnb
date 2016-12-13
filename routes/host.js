@@ -17,8 +17,8 @@ router.get('/', function(req, res, next) {
         if(err){
             return next(err);
         }
-        res.render('host/list', {hosts : hosts})
-    })
+        res.render('host/list', {hosts : hosts});
+    });
 });
 
 router.get('/search', needAuth, function(req, res, next){

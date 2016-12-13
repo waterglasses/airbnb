@@ -6,7 +6,7 @@ var Task = require('../models/Task');
 
 /* GET home page. */
 router.get('/', needAuth, function(req, res, next) {
-    Request.find({},function(err,requestlists){
+    Request.find({/*task : req.body.currentUser*/},function(err,requestlists){
         if(err){
             return next(err);
         }

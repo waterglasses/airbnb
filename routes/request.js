@@ -24,6 +24,7 @@ router.post('/request',function(req, res, next){
     requestAt : req.body.requestAt,
     user : req.user.id,
     task : req.body.task_id
+    // host_name : req.task.name
   });
   request.save(function(err, resultRequest){
     if(err){

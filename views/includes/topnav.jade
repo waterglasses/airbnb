@@ -20,8 +20,9 @@
             a(href='/requestlist') 예약한 숙소
           li
             a(href='/users/#{currentUser._id}') 개인정보 수정
-          li
-            a(href='/users') 사용자 관리
+          if (currentUser.email == 'tnryd_1004@hanmail.net')
+            li
+              a(href='/users') 사용자 관리
           li
             a(href='/signout') 로그아웃
         else
